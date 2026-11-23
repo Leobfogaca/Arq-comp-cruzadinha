@@ -39,16 +39,17 @@ Material da disciplina usado neste jogo: *ARQCOMP Exercício 04 v3: Game cruzadi
 ## Parte 2 | Como jogar
 
 1. Abra o arquivo `index.html` em um navegador.
-2. Clique em uma pista para realçar a palavra e ir à primeira casa vazia. A pista escolhida fica visível acima do tabuleiro. Você também pode clicar direto nas casas.
+2. Clique em uma pista para realçar a palavra e ir à primeira casa vazia. A pista escolhida fica visível acima do tabuleiro com o número de letras. Você também pode clicar direto nas casas.
 3. Digite uma letra por casa. O cursor avança sozinho na direção selecionada. Em um cruzamento, clique na pista da outra direção ou use as setas do teclado para mudar de direção.
-4. Clique em **Conferir**. Cada pista recebe o resultado **Certa**, **Errada** ou **Incompleta**. Edite as respostas e confira de novo.
-5. Com 12 acertos, o terminal mostra **Sistema iniciado**. Para jogar de novo, clique em **Reiniciar**.
+4. Se preferir, cole a resposta inteira na primeira casa. O jogo distribui as letras na direção da pista selecionada.
+5. Clique em **Conferir** ou pressione **Enter** dentro do tabuleiro. Cada pista recebe o resultado **Certa**, **Errada** ou **Incompleta**. Edite as respostas e confira de novo.
+6. Com 12 acertos, o terminal mostra **Sistema iniciado**. Para jogar de novo, clique em **Reiniciar**.
 
 O `index.html` contém a estrutura da tela. O `style.css` define o visual. O `script.js` guarda as pistas e as posições de cada palavra, monta o tabuleiro e confere as respostas. O jogo roda localmente, sem bibliotecas ou conexão com a internet.
 
 ## Partes 3 e 4 | GitHub e entrega
 
-**Link do jogo no GitHub Pages** · Aguardando publicação.
+**Link do jogo no GitHub Pages** · Aguardando publicação. Depois de publicar, substitua esta frase pelo endereço exibido em **Settings → Pages → Visit site**.
 
 O arquivo `historico/arqcomp-cruzadinha.bundle` do ZIP leva os commits locais. Com o Git instalado, execute o comando abaixo dentro da pasta extraída para abrir uma cópia do projeto com o histórico.
 
