@@ -118,7 +118,15 @@ progress::-webkit-progress-bar { background: #34423a; }
 progress::-webkit-progress-value { background: var(--verde); }
 progress::-moz-progress-bar { background: var(--verde); }
 
-#instrucao { margin: 18px 0 12px; font-size: 0.84rem; color: var(--suave); }
+#instrucao {
+    margin: 18px 0 12px;
+    padding: 9px 12px;
+    border-left: 3px solid var(--verde);
+    background: #202d24;
+    color: var(--texto);
+    font-size: 0.84rem;
+    line-height: 1.45;
+}
 
 #tabuleiro {
     display: grid;
@@ -161,9 +169,15 @@ progress::-moz-progress-bar { background: var(--verde); }
     pointer-events: none;
 }
 
-.casa.selecionada input { background: #3b5141; border-color: #91bc96; }
+.casa.selecionada input {
+    background: #3b5141;
+    border-color: #91bc96;
+    box-shadow: inset 0 -2px #91bc96;
+}
 .casa.certa input { color: var(--verde); border-color: #8fc678; }
 .casa.errada input { color: var(--vermelho); border-color: #e0807d; }
+.casa.selecionada.certa input { box-shadow: inset 0 -2px #8fc678; }
+.casa.selecionada.errada input { box-shadow: inset 0 -2px #e0807d; }
 
 button { cursor: pointer; font: inherit; }
 
