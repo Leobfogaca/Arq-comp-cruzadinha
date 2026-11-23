@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boot de Emergência | Arquitetura Computacional</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <header class="cabecalho">
+            <p class="disciplina">Arquitetura Computacional <span>/</span> Sprint 3</p>
+            <h1>Boot de Emergência<span>.</span></h1>
+            <p class="introducao">A inicialização foi interrompida. Use as pistas para identificar os componentes e mecanismos do computador. Cada palavra correta aproxima o sistema de voltar a funcionar.</p>
+        </header>
+
+        <section class="painel" aria-labelledby="titulo-tabuleiro">
+            <div class="barra-terminal">
+                <h2 id="titulo-tabuleiro">Terminal de recuperação</h2>
+                <span id="estado" class="estado">Inicialização interrompida</span>
+            </div>
+
+            <div class="interface">
+                <div class="area-jogo">
+                    <div class="progresso">
+                        <label for="barra-progresso">Progresso do boot</label>
+                        <strong id="placar">0 de 12 palavras</strong>
+                        <progress id="barra-progresso" value="0" max="12"></progress>
+                    </div>
+
+                    <p id="instrucao">Escolha uma pista ou uma casa. Digite uma letra em cada casa.</p>
+                    <div id="tabuleiro" aria-label="Tabuleiro da cruzadinha" role="group"></div>
+
+                    <div class="acoes">
+                        <button class="principal" id="conferir" type="button">Conferir</button>
+                        <button class="secundario" id="reiniciar" type="button">Reiniciar</button>
+                    </div>
+                    <p id="div_msg" role="status"></p>
+                </div>
+
+                <aside class="pistas" aria-label="Pistas numeradas">
+                    <div>
+                        <h3><span aria-hidden="true">→</span> Horizontais</h3>
+                        <ol id="horizontais"></ol>
+                    </div>
+                    <div>
+                        <h3><span aria-hidden="true">↓</span> Verticais</h3>
+                        <ol id="verticais"></ol>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
