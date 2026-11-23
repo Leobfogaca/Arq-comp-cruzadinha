@@ -148,26 +148,63 @@ function criarCasa(casa) {
     })
 
     input.addEventListener('input', () => {
-        input.value = input.value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 1)
-
-        if (input.value !== casa.letra) {
-            casa.letra = input.value
-
-            // Uma casa de cruzamento pode alterar duas respostas conferidas.
-            for (let palavra of casa.palavras) {
-                palavra.resultado = ''
-            }
-
-            mensagem.textContent = ''
+        let letra = normalizarLetras(input.value).slice(0, 1)
+        if (registrarLetra(casa, letra)) {
             atualizarTela()
         }
-        if (input.value) {
+
+        if (letra) {
             moverNaPalavra(casa, 1)
         }
     })
 
+    input.addEventListener('paste', evento => colarResposta(evento, casa))
     input.addEventListener('keydown', evento => navegar(evento, casa))
     tabuleiro.append(celula)
+}
+
+function normalizarLetras(texto) {
+    return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/[^A-Z]/g, '')
+}
+
+function registrarLetra(casa, letra) {
+    casa.input.value = letra
+    if (casa.letra === letra) {
+        return false
+    }
+
+    casa.letra = letra
+    // Uma casa de cruzamento pode alterar duas respostas conferidas.
+    for (let palavra of casa.palavras) {
+        palavra.resultado = ''
+    }
+    mensagem.textContent = ''
+    return true
+}
+
+function colarResposta(evento, casa) {
+    if (!evento.clipboardData) {
+        return
+    }
+
+    evento.preventDefault()
+    let letras = normalizarLetras(evento.clipboardData.getData('text/plain'))
+    let palavra = casa.palavras.includes(palavraAtiva) ? palavraAtiva : casa.palavras[0]
+    let casasDaPalavra = palavra.casas
+    let inicio = casasDaPalavra.indexOf(casa)
+    let quantidade = Math.min(letras.length, casasDaPalavra.length - inicio)
+
+    if (quantidade === 0) {
+        return
+    }
+
+    for (let i = 0; i < quantidade; i++) {
+        registrarLetra(casasDaPalavra[inicio + i], letras[i])
+    }
+
+    selecionar(palavra)
+    let proxima = Math.min(inicio + quantidade, casasDaPalavra.length - 1)
+    casasDaPalavra[proxima].input.focus()
 }
 
 function selecionar(palavra) {
