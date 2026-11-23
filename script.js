@@ -187,6 +187,11 @@ function moverNaPalavra(casa, passo) {
 }
 
 function navegar(evento, casa) {
+    if (evento.key === 'Enter' && !evento.isComposing) {
+        evento.preventDefault()
+        conferir()
+    }
+
     let setas = {
         ArrowLeft: [0, -1, 'H'],
         ArrowRight: [0, 1, 'H'],
