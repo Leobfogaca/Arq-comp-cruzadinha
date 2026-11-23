@@ -91,7 +91,7 @@ function criarPista(palavra) {
     numero.className = 'numero'
     numero.textContent = palavra.numero
     pista.id = 'pista-' + palavra.numero + palavra.direcao
-    pista.textContent = palavra.pista
+    pista.textContent = palavra.pista + ' (' + palavra.termo.length + ' letras)'
     resultado.className = 'resultado'
 
     palavra.botao = botao
@@ -173,7 +173,7 @@ function criarCasa(casa) {
 function selecionar(palavra) {
     palavraAtiva = palavra
     let direcao = palavra.direcao === 'H' ? 'Horizontal' : 'Vertical'
-    instrucao.textContent = palavra.numero + ' · ' + direcao + ' · ' + palavra.pista
+    instrucao.textContent = palavra.numero + ' · ' + direcao + ' · ' + palavra.rotulo.textContent
     atualizarTela()
 }
 
